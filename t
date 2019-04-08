@@ -28,28 +28,24 @@
         document.getElementById("bir").value = "1974-12-25";
     }
 
-    function getBmi() {
-        var t = $("#tall").val();
-        var w = $("#weight").val();
-        if (isNaN(t)) {
-            alert("身高只能是數字!");
-            //清空字串
-            tall.value = "";
-        }
-        else if (isNaN(w)) {
-            alert("體重只能是數字!");
-            //清空字串
-            weight.value = "";
-        } else {
-            t = parseFloat(t) / 100;
-            w = parseFloat(w)
-            var bmi = w / (t * t);
-            //取小數點後 2 位數
-            bmi = bmi.toFixed(2);
-            alert(" 身高 " + t + "公尺!" + " 體重 " + w + "公斤!" + "\n BMI = " + bmi);
+    function Bmi() {
+        if (isNaN(reg.tall.value)) {
+            alert("輸入數字");
 
         }
+        if (isNaN(reg.weight.value)) {
+            alert("輸入數字");
+
+        }
+        else
+            var tall = document.getElementById("tall").value;
+        var weight = document.getElementById("weight").value;
+        //alert(h + w);
+        var bmi = weight / ((tall * 0.01) * (tall * 0.01));
+        alert('BMI= ' + bmi + '\n');
+
     }
+
 
     function get() {
         var name_element = document.getElementById('name');
@@ -81,10 +77,10 @@
             gender = F_element.value;
 
 
-        alert(name + '\n' + bir + '\n' + tel + '\n' + age + '\n' + job + '\n' + gender + '\n'+bmi);
+        alert(name + '\n' + bir + '\n' + tel + '\n' + age + '\n' + job + '\n' + gender + '\n' + bmi);
     }
 
-   
+
 </script>
 <body background="http://image.topit.cc/uploads/20180804/17/1533373232-DLWdIkvUul.jpg ">
     <form id="orderForm1" action="http://203.64.84.113/x/RQ_RS.aspx" method="post" name="reg">
@@ -105,7 +101,7 @@
 <input name="weight" type="text" id="weight" size="10">
 公斤</p>
 <p>
-<input type="submit" name="submit" id="submit" value="計算BMI" onClick="getBmi()">
+<input type="submit" name="submit" id="submit" value="計算BMI" onClick="Bmi()">
 </p>
 
         <h4>生日Birth:<input type="text" id="bir"   name="cage" value="" size="10"><br></h4>
